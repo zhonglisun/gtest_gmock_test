@@ -13,7 +13,7 @@ public:
     virtual ~person() {}
     virtual void setName(string &name) = 0;
     virtual string getName() = 0;
-
+    virtual void startWork(int workTime);
 };
 
 

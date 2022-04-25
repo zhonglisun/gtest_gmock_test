@@ -13,8 +13,19 @@ TEST(HelloTest, BasicAssertions) {
 TEST(MOCK_TEST, tes1)
 {
   mockPerson mp;
-  EXPECT_CALL(mp, getName()).WillOnce(::testing::Return("hello_mock"));
+  EXPECT_CALL(mp, getName()).WillOnce(::testing::Return("hello_mock")).WillRepeatedly(::testing::Return("hello"));
   EXPECT_EQ("hello_mock", mp.getName());
+  EXPECT_EQ("hello_mock", mp.getName());
+}
+
+TEST(MOCK_TEST, tes2)
+{
+  mockPerson mp;
+  EXPECT_CALL(mp, startWork(::testing::_));
+  EXPECT_CALL(mp, startWork(12)).Times(2);
+  mp.startWork(13);
+  mp.startWork(12);
+  mp.startWork(12);
 }
 
 int main(int arg, char ** v)

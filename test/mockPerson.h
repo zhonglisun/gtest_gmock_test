@@ -14,6 +14,7 @@ class mockPerson
 public:
     MOCK_METHOD0(getName, string());
     MOCK_METHOD1(setName, void(string&));
+    MOCK_METHOD(void, startWork, (int workTime));
 };
 
 
